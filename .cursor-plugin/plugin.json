@@ -5,6 +5,8 @@
   "author": {
     "name": "Arthur"
   },
+  "homepage": "https://github.com/rtpro/qodo-cursor",
+  "repository": "https://github.com/rtpro/qodo-cursor",
   "license": "MIT",
   "keywords": ["qodo", "codium", "code-review", "standards", "mcp"],
   "logo": "assets/logo.svg",
