@@ -1,0 +1,28 @@
+{
+  "name": "qodo",
+  "version": "0.1.0",
+  "description": "Qodo coding rules, local review, and pull request finding resolution inside Cursor. Skills come from Qodo's Agentic Toolbox; this is not the retired Qodo IDE extension.",
+  "author": {
+    "name": "Arthur"
+  },
+  "license": "MIT",
+  "keywords": ["qodo", "codium", "code-review", "standards", "mcp"],
+  "logo": "assets/logo.svg",
+  "variables": {
+    "type": "object",
+    "properties": {
+      "QODO_API_KEY": {
+        "type": "string",
+        "title": "Qodo API key",
+        "description": "Personal API key from the Qodo portal (app.qodo.ai). Sent as a Bearer token to the Qodo MCP server. Do not commit this value."
+      },
+      "QODO_MCP_URL": {
+        "type": "string",
+        "title": "Qodo MCP server URL",
+        "description": "Streamable HTTP endpoint, including the trailing slash. Leave the default for Qodo Cloud. Single-tenant and on-premises workspaces use the URL from the Qodo portal.",
+        "default": "https://sdk.qodo.ai/v1/tools/mcp/"
+      }
+    },
+    "required": ["QODO_API_KEY"]
+  }
+}

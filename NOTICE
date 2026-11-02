@@ -1,0 +1,9 @@
+The files under skills/ are copied from qodo-ai/qodo-skills at commit
+9af23a9cb380d54d3d4fee667a9e0e4c9ce809cb.
+
+Copyright (c) 2025 Qodo Team
+Licensed under the MIT License. See licenses/qodo-skills/LICENSE.
+
+Those skills are the same source Qodo publishes for Claude Code, Codex, and
+other agents. This repository only packages them for Cursor, with an MCP
+connection and a rule. It is not published by Qodo.

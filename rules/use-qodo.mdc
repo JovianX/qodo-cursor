@@ -1,0 +1,14 @@
+---
+description: Use Qodo skills for coding standards, local review, and pull request finding resolution.
+alwaysApply: true
+---
+
+Qodo is available through this plugin's skills and the `qodo-managed-tools` MCP server.
+
+- Before implementing, editing, or refactoring code, use the `qodo-get-rules` skill. Reuse rules already retrieved for the same workspace, repository, and task. Apply ERROR rules as requirements. WARNING and RECOMMENDATION rules are advisory.
+- At a substantive coding milestone, and before handing off completed work, use the `qodo-review` skill. Do not review every trivial edit.
+- When the user asks to resolve Qodo comments already posted on a pull request, use the `qodo-review-resolver` skill.
+- For questions about how this codebase is structured or why code is written a certain way, use the `qodo-codebase-wisdom` skill.
+- When Qodo tools or the `qodo` CLI are missing, use the `qodo-setup` skill if the user asked to set Qodo up. Otherwise continue the task and say that Qodo was not applied.
+
+Follow each skill's own instructions for MCP versus CLI. `qodo-get-rules` uses the connected `rules-search` tool when it is available. `qodo-review` prefers the Qodo CLI, because that command collects the worktree.

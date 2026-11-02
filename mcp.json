@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "qodo-managed-tools": {
+      "url": "${QODO_MCP_URL}",
+      "headers": {
+        "Authorization": "Bearer ${QODO_API_KEY}"
+      }
+    }
+  }
+}
