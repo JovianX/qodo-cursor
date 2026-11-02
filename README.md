@@ -1,52 +1,50 @@
 # Qodo for Cursor
 
-A Cursor plugin that brings Qodo's Agentic Toolbox into the agent: coding rules before edits, local review, and resolution of Qodo pull request findings.
+Coding rules, local review, and pull request finding resolution for the Cursor agent.
 
-This replaces the install path that disappeared when Qodo retired its IDE extension on November 1, 2026. It does not restore that extension's sidebar, completions, or commit messages.
+Qodo retired its IDE extension on November 1, 2026. This plugin is the install path that replaced it: the same open-source Agentic Toolbox skills Qodo ships for other coding agents, a Cursor rule, and a connection to Qodo's MCP server. It does not restore the old sidebar, completions, or commit-message generator.
 
-The skills under `skills/` are copied from [qodo-ai/qodo-skills](https://github.com/qodo-ai/qodo-skills) (`9af23a9`). See `NOTICE`.
+[JovianX](https://github.com/JovianX) maintains this package. Qodo does not publish it.
 
-## What you get
+## Install
 
-| Skill | Use it for |
-| --- | --- |
-| `qodo-get-rules` | Load the coding rules that apply to the current task. The plugin rule asks for this before code is written or edited. |
-| `qodo-review` | Review local changes at a real milestone and before handoff. |
-| `qodo-review-resolver` | Fix Qodo findings already posted on a pull request. |
-| `qodo-codebase-wisdom` | Ask how this codebase fits together. |
-| `qodo-review-notes` | Publish or refresh review notes on an existing commit. |
-| `qodo-manage-standards` | Manage Review Standards from the agent. |
-| `qodo-setup` | Install the Qodo CLI, sign in, and check that tools respond. |
+From Customize, install **Qodo** once it is listed on the Cursor Marketplace.
 
-Invoke a skill with `/qodo-get-rules`, `/qodo-review`, or the other names in chat.
-
-Rules search uses the Qodo MCP server. Local review prefers the `qodo` CLI, because that command collects the working tree. The review skill's MCP path cannot see your files on its own. Run `/qodo-setup` once if `qodo` is not on your PATH. The CLI requirement is Qodo 2.0.0 or newer.
-
-## Configure
-
-1. Create a personal API key in the [Qodo portal](https://app.qodo.ai).
-2. Install this plugin, then set **Qodo API key** in Customize → the Qodo plugin → Configure.
-3. Leave **Qodo MCP server URL** at `https://sdk.qodo.ai/v1/tools/mcp/` for Qodo Cloud. The trailing slash is required. Single-tenant and on-premises workspaces use the URL from the Qodo portal.
-4. Reload the window. The server shows up as `plugin-qodo-qodo-managed-tools`.
-
-The key stays in Cursor's plugin configuration. It is not stored in this repo.
-
-You need a Qodo account to use the skills. Workspace admins control Agentic Toolbox access.
-
-## Try it locally
-
-Cursor only loads a symlink in `~/.cursor/plugins/local` when the target is inside that folder, so copy the plugin:
+To load this repository before it is listed:
 
 ```bash
 mkdir -p ~/.cursor/plugins/local
 rm -rf ~/.cursor/plugins/local/qodo
-cp -a . ~/.cursor/plugins/local/qodo
+rsync -a --exclude .git ./ ~/.cursor/plugins/local/qodo/
 ```
 
-Run **Developer: Reload Window**. In Customize, confirm the Qodo skills, the use-qodo rule, and the MCP server. Set the API key, then ask the agent to implement a small change and check that it calls `qodo-get-rules` first.
+Reload the window. On Enterprise, an admin must allow local plugin imports. That setting is off by default.
 
-On Enterprise, an admin has to allow local plugin imports. That setting is off by default.
+## Configure
 
-## Publish
+1. Create a personal API key in the [Qodo portal](https://app.qodo.ai). Using the skills requires a Qodo account. A workspace admin controls Agentic Toolbox access.
+2. In Customize, open this plugin and set **Qodo API key**.
+3. For Qodo Cloud, leave **Qodo MCP server URL** at `https://sdk.qodo.ai/v1/tools/mcp/`. The trailing slash is required. Single-tenant and on-premises workspaces use the URL shown in the Qodo portal.
+4. Reload the window. The server is named `plugin-qodo-qodo-managed-tools`.
 
-Marketplace plugins have to be in a public git repository and are reviewed by Cursor. Submit the repo at [cursor.com/marketplace/publish](https://cursor.com/marketplace/publish) when you want it listed. This copy is not an official Qodo release.
+Cursor stores the key in plugin configuration. This repository does not contain it.
+
+Rule search goes through that MCP server. Local review uses the `qodo` CLI, because Qodo's review API cannot read the working tree. If `qodo` is not on your PATH, run `/qodo-setup` once. The CLI must be version 2.0.0 or newer.
+
+## Skills
+
+| Skill | When to use it |
+| --- | --- |
+| `/qodo-get-rules` | Before writing or editing code. The included rule requests this and reuses rules already loaded for the same task. |
+| `/qodo-review` | At a substantive milestone, and again before handing work off. |
+| `/qodo-review-resolver` | When Qodo has already posted findings on a pull request. |
+| `/qodo-codebase-wisdom` | When the question is how this codebase fits together. |
+| `/qodo-review-notes` | When publishing or refreshing review notes on an existing commit. |
+| `/qodo-manage-standards` | When changing the organization's Review Standards. |
+| `/qodo-setup` | When the CLI is missing or Qodo is not signed in. |
+
+## Provenance
+
+The files in `skills/` are copied from [qodo-ai/qodo-skills](https://github.com/qodo-ai/qodo-skills) at `9af23a9cb380d54d3d4fee667a9e0e4c9ce809cb`. Copyright 2025 Qodo Team, MIT. See `NOTICE` and `licenses/qodo-skills/LICENSE`.
+
+The Cursor packaging in this repository is also MIT. See `LICENSE`.

@@ -1,12 +1,13 @@
 {
   "name": "qodo",
-  "version": "0.1.0",
-  "description": "Qodo coding rules, local review, and pull request finding resolution inside Cursor. Skills come from Qodo's Agentic Toolbox; this is not the retired Qodo IDE extension.",
+  "version": "0.1.1",
+  "description": "Qodo coding rules, local review, and pull request finding resolution for the Cursor agent. Community packaging of Qodo's open-source Agentic Toolbox. Not the retired Qodo IDE extension.",
   "author": {
-    "name": "Arthur"
+    "name": "JovianX",
+    "email": "arthur@jovianx.com"
   },
-  "homepage": "https://github.com/rtpro/qodo-cursor",
-  "repository": "https://github.com/rtpro/qodo-cursor",
+  "homepage": "https://github.com/JovianX/qodo-cursor",
+  "repository": "https://github.com/JovianX/qodo-cursor",
   "license": "MIT",
   "keywords": ["qodo", "codium", "code-review", "standards", "mcp"],
   "logo": "assets/logo.svg",

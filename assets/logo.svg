@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Qodo">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Qodo for Cursor">
   <rect width="64" height="64" rx="14" fill="#111827"/>
-  <path d="M18 42V22h8.2c5.4 0 8.8 3.1 8.8 7.7 0 3.3-1.8 5.8-4.7 6.9L36.8 42h-6.2l-5.6-5.1H24V42H18zm6-10.2h2.4c2.2 0 3.5-1.2 3.5-3s-1.3-2.9-3.5-2.9H24v5.9z" fill="#F8FAFC"/>
-  <circle cx="44" cy="40" r="4" fill="#34D399"/>
+  <circle cx="29" cy="30" r="13" fill="none" stroke="#F8FAFC" stroke-width="4"/>
+  <path d="M36.5 38.5 46 48" fill="none" stroke="#34D399" stroke-width="4" stroke-linecap="round"/>
 </svg>

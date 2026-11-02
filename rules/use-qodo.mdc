@@ -1,14 +1,14 @@
 ---
-description: Use Qodo skills for coding standards, local review, and pull request finding resolution.
+description: Apply Qodo coding rules before edits, and use Qodo for local review and posted pull request findings.
 alwaysApply: true
 ---
 
-Qodo is available through this plugin's skills and the `qodo-managed-tools` MCP server.
+This plugin connects Qodo through its skills and the `qodo-managed-tools` MCP server.
 
-- Before implementing, editing, or refactoring code, use the `qodo-get-rules` skill. Reuse rules already retrieved for the same workspace, repository, and task. Apply ERROR rules as requirements. WARNING and RECOMMENDATION rules are advisory.
-- At a substantive coding milestone, and before handing off completed work, use the `qodo-review` skill. Do not review every trivial edit.
-- When the user asks to resolve Qodo comments already posted on a pull request, use the `qodo-review-resolver` skill.
-- For questions about how this codebase is structured or why code is written a certain way, use the `qodo-codebase-wisdom` skill.
-- When Qodo tools or the `qodo` CLI are missing, use the `qodo-setup` skill if the user asked to set Qodo up. Otherwise continue the task and say that Qodo was not applied.
+- Before implementing, editing, or refactoring, use `qodo-get-rules`. Reuse rules already loaded for the same repository and task. Treat ERROR rules as requirements. Treat WARNING and RECOMMENDATION rules as advisory.
+- Use `qodo-review` at a substantive milestone and before handing off completed work. Skip trivial edits.
+- Use `qodo-review-resolver` when the user wants posted Qodo pull request findings fixed.
+- Use `qodo-codebase-wisdom` when the question is how this codebase is structured.
+- If Qodo is not connected and the user asked to set it up, use `qodo-setup`. Otherwise continue, and say that Qodo was not applied.
 
-Follow each skill's own instructions for MCP versus CLI. `qodo-get-rules` uses the connected `rules-search` tool when it is available. `qodo-review` prefers the Qodo CLI, because that command collects the worktree.
+Follow each skill's own transport instructions. `qodo-get-rules` uses the connected `rules-search` tool when that tool is present. `qodo-review` uses the `qodo` CLI when it is installed, because the CLI collects the working tree.
